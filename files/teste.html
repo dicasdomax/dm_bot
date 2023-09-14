@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enviar Solicitação POST com Fetch</title>
+</head>
+<body>
+    <h1>Enviar Solicitação POST com Fetch</h1>
+
+    <script>
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+        const body = `number=5543991902812&message=DEFINITIVO!`;
+
+        const init = {
+            method: 'POST',
+            headers,
+            body
+        };
+
+        fetch('http://177.153.58.244:8000/zdg-message', init)
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json(); // Converte a resposta em JSON
+            })
+            .then((responseData) => {
+                // Lida com os dados da resposta JSON
+                console.log('Resposta do servidor:', responseData);
+                // Você pode fazer algo com os dados aqui, como exibi-los em uma div
+                document.getElementById('response').textContent = JSON.stringify(responseData);
+            })
+            .catch((error) => {
+                // Lida com erros de rede ou da aplicação
+                console.error('Erro:', error);
+            });
+    </script>
+
+    <!-- Div para exibir a resposta do servidor -->
+    <div>
+        <h2>Resposta do Servidor:</h2>
+        <pre id="response"></pre>
+    </div>
+</body>
+</html>

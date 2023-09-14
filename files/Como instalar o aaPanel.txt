@@ -1,0 +1,51 @@
+Como instalar o SSL e configurar subdomínios
+
+1º Criar uma conta na hetzner
+
+2º Criar um servidor VPS
+
+3º Conectar a maquina com o Bitvise SSH Client
+ host: Ip da maquina VPS
+ Username: root
+ Port: 22
+ Senha: resetar no rescue da hetzner
+
+4º Atualiza a maquina VPS
+sudo apt update 
+sudo apt upgrade
+
+wget -O install.sh http://www.aapanel.com/script/install-ubuntu_6.0_en.sh && sudo bash install.sh aapanel
+
+5º Instalar pacotes aapanel
+Apss: 
+ Openlitespeed,
+ mySQL5.7, 
+ php 7.4,
+ one-click deployment, 
+ google drive
+
+6º Configurar o PHP
+ memory_limit 512m
+ configuration file
+ max_input_vars descomentar e aumentar para 10000
+
+7º Instalação do Wordpress
+
+     ============================================================================
+	aaPanel Internet Address: http://177.153.58.244:7800/819cda23
+	aaPanel Internal Address: http://177.153.58.244:7800/819cda23
+	username: pxw8rbhe
+	password: c895d0b2
+	Warning:
+	If you cannot access the panel,
+	release the following port (7800|888|80|443|20|21) in the security group
+     =============================================================================
+
+
+
+
+
+
+
+
+
